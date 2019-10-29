@@ -7,7 +7,6 @@ const config = [];
 const generate = name => {
   const options = {
     context: path.resolve(__dirname, 'lib'),
-    devtool: 'source-map',
     entry: './elebase.js',
     module: {
       loaders: [
