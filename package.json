@@ -1,0 +1,26 @@
+{
+  "name": "elebase-sdk",
+  "version": "1.0",
+  "description": "Elebase JavaScript Development Kit",
+  "author": "Elebase <hello@elebase.io> (https://elebase.io)",
+  "homepage": "https://github.com/elebase/js-sdk",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elebase/js-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/elebase/js-sdk/issues"
+  },
+  "keywords": [
+    "elebase",
+    "geo",
+    "api"
+  ],
+  "main": "./lib/elebase.js",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "jshashes": "^1.0.7",
+    "qs": "^6.7.0"
+  }
+}
