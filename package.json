@@ -44,7 +44,8 @@
   "main": "./dist/elebase.node.js",
   "browser": "./dist/elebase.js",
   "scripts": {
-    "build": "BABEL_ENV=webpack NODE_ENV=production webpack"
+    "build": "BABEL_ENV=webpack NODE_ENV=production webpack",
+    "version": "npm run build"
   },
   "dependencies": {
     "axios": "^0.19.0",
