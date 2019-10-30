@@ -3857,7 +3857,7 @@ API.prototype = {
     }
 
     var txn = {
-      err: res.status > 304 ? new RequestError(txn.res) : null,
+      err: res.status > 304 ? new RequestError(res) : null,
       req: new Request(res),
       res: new Response(res)
     };
@@ -9577,7 +9577,7 @@ module.exports = function spread(callback) {
 /* 164 */
 /***/ (function(module, exports) {
 
-module.exports = {"name":"@elebase/sdk","version":"1.0.3","description":"Elebase JavaScript Development Kit","author":"Elebase <hello@elebase.io> (https://elebase.io)","homepage":"https://github.com/elebase/js-sdk","license":"MIT","repository":{"type":"git","url":"git+https://github.com/elebase/js-sdk.git"},"bugs":{"url":"https://github.com/elebase/js-sdk/issues"},"keywords":["elebase","geo","api"],"browserslist":["> 2%","last 2 versions"],"babel":{"presets":[["env",{"targets":{"browsers":[">0.25%","not ie 11","not op_mini all"],"node":"10.0"}}]],"plugins":["transform-runtime"]},"main":"./dist/elebase.node.js","browser":"./dist/elebase.js","scripts":{"build":"BABEL_ENV=webpack NODE_ENV=production webpack","version":"npm run build"},"dependencies":{"axios":"^0.19.0","babel-runtime":"^6.26.0","jshashes":"^1.0.7","qs":"^6.7.0"},"devDependencies":{"babel-cli":"^6.26.0","babel-core":"^6.26.3","babel-loader":"^7.1.5","babel-plugin-syntax-dynamic-import":"^6.18.0","babel-plugin-transform-object-rest-spread":"^6.26.0","babel-plugin-transform-runtime":"^6.23.0","babel-preset-env":"^1.7.0","webpack":"^3.12.0"}}
+module.exports = {"name":"@elebase/sdk","version":"1.0.4","description":"Elebase JavaScript Development Kit","author":"Elebase <hello@elebase.io> (https://elebase.io)","homepage":"https://github.com/elebase/js-sdk","license":"MIT","repository":{"type":"git","url":"git+https://github.com/elebase/js-sdk.git"},"bugs":{"url":"https://github.com/elebase/js-sdk/issues"},"keywords":["elebase","geo","api"],"browserslist":["> 2%","last 2 versions"],"babel":{"presets":[["env",{"targets":{"browsers":[">0.25%","not ie 11","not op_mini all"],"node":"10.0"}}]],"plugins":["transform-runtime"]},"main":"./dist/elebase.node.js","browser":"./dist/elebase.js","scripts":{"build":"BABEL_ENV=webpack NODE_ENV=production webpack","version":"npm run build"},"dependencies":{"axios":"^0.19.0","babel-runtime":"^6.26.0","jshashes":"^1.0.7","qs":"^6.7.0"},"devDependencies":{"babel-cli":"^6.26.0","babel-core":"^6.26.3","babel-loader":"^7.1.5","babel-plugin-syntax-dynamic-import":"^6.18.0","babel-plugin-transform-runtime":"^6.23.0","babel-preset-env":"^1.7.0","webpack":"^3.12.0"}}
 
 /***/ })
 /******/ ]);
