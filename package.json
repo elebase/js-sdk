@@ -48,7 +48,7 @@
     "version": "npm run build"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "babel-runtime": "^6.26.0",
     "jshashes": "^1.0.8",
     "qs": "^6.9.3"
