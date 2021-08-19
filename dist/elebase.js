@@ -2762,7 +2762,7 @@ var ENTRY_PHASES = [0, 1, 2, 3, 4];
  * @param {string} [config.key.private] - Private API key
  * @param {array} [config.locales] - Default array of locale codes to include in the `Accept-Language` header of each request
  * @param {array} [config.phases] - Default array of phases (0-4) by which to filter entries
- * @param {string} config.project - Project ID
+ * @param {string} [config.project] - Project ID (only required for the Project API)
  * @param {string} [config.token] - API token (required if `config.key` is not provided)
  * @param {string} [config.user] - Default User ID or authentication token to include in the `Authorization` header of each request
  * @param {string} [config.version] - API version (default: `v1`)
@@ -2786,14 +2786,14 @@ var createAPIClient = function createAPIClient(config) {
     if (!config.token && (!config.key.public || !config.key.private)) {
       throw new Error('Missing public and/or private API keys in API client config');
     }
+
+    if (!config.project || typeof config.project != 'string') {
+      throw new Error('Missing or invalid project ID in API client config');
+    }
   }
 
   if (target === 'geo' && !config.token) {
     throw new Error('Missing API token in API client config');
-  }
-
-  if (!config.project || typeof config.project != 'string') {
-    throw new Error('Missing or invalid project ID in API client config');
   }
 
   if (Array.isArray(config.phases)) {
@@ -3622,7 +3622,7 @@ var qs = __webpack_require__(63);
  * @param {string} [config.key.private] - Private API key
  * @param {array} [config.locales] - Default array of locale codes to include in the `Accept-Language` header
  * @param {array} [config.phases] - Default array of phases (0-4) to filter Entries by
- * @param {string} config.project - Project ID
+ * @param {string} [config.project] - Project ID
  * @param {string} [config.token] - API token
  * @param {string} [config.user] - User ID or authentication token
  * @param {object} http - HTTP object instance
@@ -3737,7 +3737,7 @@ API.prototype = {
 
             case 8:
 
-              if (options.first === true && txn.res.data && Array.isArray(txn.res.data.index)) {
+              if (options.first === true && this.config.target === 'api' && txn.res.data && Array.isArray(txn.res.data.index)) {
                 txn.res.data = txn.res.data.index.length ? txn.res.data.index[0] : null;
               }
 
@@ -3832,7 +3832,7 @@ API.prototype = {
     }
 
     function RequestError(obj) {
-      this.code = obj.status;
+      this.status = obj.status;
       this.headers = {};
 
       if (this.config.target === 'geo') {
@@ -3842,8 +3842,8 @@ API.prototype = {
             type = _ref2.type;
 
         this.code = code || 'unknown';
-        this.type = type || 'unknown';
         this.info = info || null;
+        this.type = type || 'unknown';
       } else {
         var _ref3 = obj.data.error || {},
             id = _ref3.id,
@@ -9469,7 +9469,7 @@ module.exports = function isAxiosError(payload) {
 /* 160 */
 /***/ (function(module, exports) {
 
-module.exports = {"name":"@elebase/sdk","version":"1.0.6","description":"Elebase JavaScript Development Kit","author":"Elebase <hello@elebase.io> (https://elebase.io)","homepage":"https://github.com/elebase/js-sdk","license":"MIT","repository":{"type":"git","url":"git+https://github.com/elebase/js-sdk.git"},"bugs":{"url":"https://github.com/elebase/js-sdk/issues"},"keywords":["elebase","geo","api"],"browserslist":["> 2%","last 2 versions"],"babel":{"presets":[["env",{"targets":{"browsers":[">0.25%","not ie 11","not op_mini all"],"node":"10.0"}}]],"plugins":["transform-runtime"]},"main":"./dist/elebase.node.js","browser":"./dist/elebase.js","scripts":{"build":"BABEL_ENV=webpack NODE_ENV=production webpack","version":"npm run build"},"dependencies":{"axios":"^0.21.1","babel-runtime":"^6.26.0","jshashes":"^1.0.8","qs":"^6.9.4"},"devDependencies":{"babel-cli":"^6.26.0","babel-core":"^6.26.3","babel-loader":"^7.1.5","babel-plugin-syntax-dynamic-import":"^6.18.0","babel-plugin-transform-runtime":"^6.23.0","babel-preset-env":"^1.7.0","webpack":"^3.12.0"}}
+module.exports = {"name":"@elebase/sdk","version":"1.1.0","description":"Elebase JavaScript Development Kit","author":"Elebase <hello@elebase.io> (https://elebase.io)","homepage":"https://github.com/elebase/js-sdk","license":"MIT","repository":{"type":"git","url":"git+https://github.com/elebase/js-sdk.git"},"bugs":{"url":"https://github.com/elebase/js-sdk/issues"},"keywords":["elebase","geo","api"],"browserslist":["> 2%","last 2 versions"],"babel":{"presets":[["env",{"targets":{"browsers":[">0.25%","not ie 11","not op_mini all"],"node":"10.0"}}]],"plugins":["transform-runtime"]},"main":"./dist/elebase.node.js","browser":"./dist/elebase.js","scripts":{"build":"BABEL_ENV=webpack NODE_ENV=production webpack","version":"npm run build"},"dependencies":{"axios":"^0.21.1","babel-runtime":"^6.26.0","jshashes":"^1.0.8","qs":"^6.9.4"},"devDependencies":{"babel-cli":"^6.26.0","babel-core":"^6.26.3","babel-loader":"^7.1.5","babel-plugin-syntax-dynamic-import":"^6.18.0","babel-plugin-transform-runtime":"^6.23.0","babel-preset-env":"^1.7.0","webpack":"^3.12.0"}}
 
 /***/ })
 /******/ ]);
