@@ -3721,7 +3721,7 @@ API.prototype = {
 
             case 3:
               res = _context.sent;
-              txn = this._buildResult(res, options);
+              txn = this._buildResult(res, (0, _assign2.default)(options, { target: this.config.target }));
 
 
               if (this.config.http.logging) {
@@ -3831,11 +3831,11 @@ API.prototype = {
       this.url = req.url;
     }
 
-    function RequestError(obj) {
+    function RequestError(obj, src) {
       this.status = obj.status;
       this.headers = {};
 
-      if (this.config.target === 'geo') {
+      if (src === 'geo') {
         var _ref2 = obj.data.error || {},
             code = _ref2.code,
             info = _ref2.info,
@@ -3872,7 +3872,7 @@ API.prototype = {
     }
 
     var txn = {
-      err: res.status > 304 ? new RequestError(res) : null,
+      err: res.status > 304 ? new RequestError(res, options.target) : null,
       req: new Request(res),
       res: new Response(res)
     };
