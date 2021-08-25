@@ -4533,7 +4533,7 @@ API.prototype = {
 
         this.id = id || 'unknown';
         this.data = data || null;
-        this.message = 'API error: ' + (id ? (0, _stringify2.default)({ id: id, data: data }) : null);
+        this.message = id ? 'API error: ' + (0, _stringify2.default)({ id: id, data: data }) : '';
       }
 
       if (obj.headers['X-Usage-Limit-Info']) {
