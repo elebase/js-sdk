@@ -44,11 +44,10 @@
   "main": "./dist/elebase.node.js",
   "browser": "./dist/elebase.js",
   "scripts": {
-    "build": "BABEL_ENV=webpack NODE_ENV=production webpack",
-    "version": "npm run build"
+    "build": "BABEL_ENV=webpack NODE_ENV=production webpack"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.4",
     "babel-runtime": "^6.26.0",
     "jshashes": "^1.0.8",
     "qs": "^6.9.4"
