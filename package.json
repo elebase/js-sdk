@@ -47,7 +47,7 @@
     "build": "BABEL_ENV=webpack NODE_ENV=production webpack"
   },
   "dependencies": {
-    "axios": "^0.26.1",
+    "axios": "^1.6.0",
     "babel-runtime": "^6.26.0",
     "jshashes": "^1.0.8",
     "qs": "^6.9.4"
